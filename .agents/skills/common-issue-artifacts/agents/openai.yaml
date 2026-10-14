@@ -1,0 +1,4 @@
+interface:
+  display_name: "Common Issue Artifacts"
+  short_description: "Manage Jira analysis and implementation artifacts"
+  default_prompt: "Use $common-issue-artifacts to record this Jira issue's analysis, evidence, proposal, selected plan, implementation, and commit message."

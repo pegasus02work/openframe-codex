@@ -116,6 +116,7 @@
 | 요청 | 스킬 위치 |
 | --- | --- |
 | TmaxSoft Jira 이슈 접근·내용·필드 확인 | `.agents/skills/common-tmaxsoft-jira-read` |
+| Jira 이슈 분석·수정 제안·구현 계획·구현 결과·커밋 문구의 산출물 관리 | `.agents/skills/common-issue-artifacts` |
 | OpenFrame 설정 조회·가역 변경·복원 | `.agents/skills/common-ofconfig-manage` |
 | `COBOL_COMPILER=NETCOBOL`인 COBOL 테스트 모듈 전처리·컴파일·배치 | `.agents/skills/common-netcobol-compile` |
 | `COBOL_COMPILER=OFCOBOL`인 COBOL 테스트 모듈 컴파일·배치 | `.agents/skills/common-ofcobol-compile` |
@@ -144,6 +145,7 @@ ofconfig list -n "$OPENFRAME_NODENAME" -s ofsys -sec COMPILER -k COBOL_COMPILER 
 
 ### Jira 이슈 수정에서 테스트까지
 
+- 이슈 분석부터 후속 구현까지 [common-issue-artifacts](.agents/skills/common-issue-artifacts/SKILL.md)를 함께 적용한다. 산출물 경로·파일별 기록 시점과 내용은 이 스킬을 단일 기준으로 삼고, 분석·실행·방향 확인 절차는 아래 기존 지침과 담당 스킬을 따른다. Jira 접근·필드 확인만 요청받은 경우는 제외한다.
 - 이슈 내용 확인은 `common-tmaxsoft-jira-read`, 서버 측 원인 조사는 사용 가능한 `openframe-issue-investigate`를 적용한다. 분석·제안만 요청받았으면 소스 수정이나 테스트 실행으로 넘어가지 않는다.
 - Jira 이슈의 C/C++ 코드 수정을 요청받았으면 원인·기대 동작·영향 범위를 정리하고 위임받은 범위에서 구현과 관련 단위 테스트 작성·실행·gcov 검증까지 이어간다. 사용자가 테스트 제외 또는 별도 범위를 지정하면 이를 우선한다. 수정 제안만 요청받았을 때는 구현 권한을 추정하지 않는다.
 - 구현 전 `common-unit-test-write` 전체를 읽고 이슈 ID·재현 조건·기대 결과·대상 파일/함수·변경 예정 줄/분기를 테스트 계획으로 전달한다. 해당 스킬은 작성뿐 아니라 빌드·실행·커버리지 검증과 테스트 함수별 보고까지 담당한다.
