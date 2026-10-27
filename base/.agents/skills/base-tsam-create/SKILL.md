@@ -149,5 +149,4 @@ copybook 형태 이외의 문제는 가능한 범위에서 직접 해결하고 �
 
 옵션이 불확실하면 다음 매뉴얼을 확인한다.
 
-- `{{manual_base}}/openframe_base/docs/modules/tool-reference-guide/pages/ds/sect-idcams.adoc`
-- `{{manual_base}}/openframe_base/docs/modules/tool-reference-guide/pages/ds/sect-listcat.adoc`
+- `common-manual-wiki`에 따라 `{{manual_base}}` 위키 → OpenFrame Base → 대상 제품 버전 → 툴 참조 안내서(`tool-reference-guide`) → 데이터셋 관리 툴에서 `idcams`, `listcat` 본문을 읽는다. 실제 목차 링크를 따르고 본문 누락은 미확인으로 보고한다.

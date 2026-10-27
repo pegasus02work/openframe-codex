@@ -2,14 +2,13 @@
 
 ## 기준 매뉴얼
 
-- 개요와 기술 형식: `{{manual_base}}/openframe_batch/docs/modules/xsp-jcl-reference-guide/pages/jcl-intro/sect-jcl-introduction.adoc`
-- JOB 문: `{{manual_base}}/openframe_batch/docs/modules/xsp-jcl-reference-guide/pages/jcl/sect-job-statement.adoc`
-- EX 문: `{{manual_base}}/openframe_batch/docs/modules/xsp-jcl-reference-guide/pages/jcl/sect-ex-statement.adoc`
-- FD 문: `{{manual_base}}/openframe_batch/docs/modules/xsp-jcl-reference-guide/pages/jcl/sect-fd-statement.adoc`
-- JEND 문: `{{manual_base}}/openframe_batch/docs/modules/xsp-jcl-reference-guide/pages/jcl/sect-jend-statement.adoc`
-- 인라인 입력: 같은 디렉터리의 `sect-sysin-statement.adoc`, `sect-data-statement.adoc`, `sect-end-statement.adoc`
-- IEFBR14: `{{manual_base}}/openframe_batch/docs/modules/xsp-utility-reference-guide/pages/etc/sect-iefbr14.adoc`
-- 제출과 결과 확인: `{{manual_base}}/openframe_batch/docs/modules/xsp-tjes-guide/pages/chapter-tjesmgr-commands.adoc`, `chapter-job-management.adoc`
+`common-manual-wiki`에 따라 `{{manual_base}}` 위키 → OpenFrame Batch → 대상 제품 버전 → XSP 안내서의 실제 목차 링크를 따라 읽는다.
+
+- 개요와 기술 형식, JOB·EX·FD·JEND 문, 인라인 입력의 SYSIN·DATA·END 문: XSP JCL 문법 안내서(`xsp-jcl-reference-guide`)의 해당 장·절.
+- IEFBR14: XSP 유틸리티 참조 안내서(`xsp-utility-reference-guide`)의 해당 프로그램 본문.
+- 제출과 결과 확인: XSP TJES 안내서(`xsp-tjes-guide`)의 명령어·JOB 관리 장.
+
+로컬 `.adoc` 경로를 URL로 바꾸지 않는다. 목차만 있고 상세 본문이 누락되면 명세 확인의 공백으로 보고한다.
 
 프로그램별 FD, 제어문과 정상 RC는 `xsp-utility-reference-guide`의 해당 프로그램 문서를 추가로 읽어 확인한다.
 

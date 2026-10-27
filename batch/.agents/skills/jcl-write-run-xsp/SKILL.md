@@ -29,7 +29,7 @@ ofconfig list -n "$node_name" -k BATCH_OS_TYPE -l
 
 JOB명, 실행 프로그램, STEP 순서와 조건, FD 이름, 입력·출력 데이터셋, 인라인 입력, 예상 STEP RC, 확인할 SPOOL 또는 최종 데이터셋 결과를 정리한다. 빠진 정보는 기존 JCL, 프로그램 소스, 유틸리티 매뉴얼에서 확인하고 추측하지 않는다.
 
-프로그램이나 유틸리티별 FD와 제어문은 `{{manual_base}}/openframe_batch/docs/modules/xsp-utility-reference-guide`에서 먼저 찾는다. COBOL 모듈 준비가 필요하면 루트의 컴파일러 라우팅으로 `common-ofcobol-compile` 또는 `common-netcobol-compile`을 선택한다.
+프로그램이나 유틸리티별 FD와 제어문은 `common-manual-wiki`에 따라 `{{manual_base}}` 위키 → OpenFrame Batch → 대상 제품 버전 → XSP 유틸리티 참조 안내서(`xsp-utility-reference-guide`)의 실제 링크에서 먼저 찾는다. COBOL 모듈 준비가 필요하면 루트의 컴파일러 라우팅으로 `common-ofcobol-compile` 또는 `common-netcobol-compile`을 선택한다.
 
 ### 2. XSP 문법으로 작성하기
 

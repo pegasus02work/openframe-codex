@@ -164,6 +164,7 @@ ofconfig list   -n "$node_name" -s "$subject" -sec "$section" -k "$key" -l
 
 명령 옵션이나 설정 의미가 불확실하면 아래 자료를 확인하고, 확인한 동작 규칙을 이 절차에 적용한다.
 
-- 명령 매뉴얼: `{{manual_base}}/openframe_base/docs/modules/tool-reference-guide/pages/etc/sect-ofconfig.adoc`
-- 설정 매뉴얼: 관련 제품 매뉴얼의 `configuration-guide`
+- `common-manual-wiki`에 따라 `{{manual_base}}` 위키에서 대상 제품 버전의 실제 목차 링크를 따라 읽는다.
+- 명령 매뉴얼: OpenFrame Base → 툴 참조 안내서(`tool-reference-guide`) → 기타 툴 → `ofconfig` 본문. 미해결 include로 상세 본문이 없으면 명령 명세 확인 완료로 판단하지 않는다.
+- 설정 매뉴얼: 관련 제품의 환경설정 안내서(`configuration-guide`).
 - 매뉴얼과 실제 동작이 다르면 승인된 작업 환경의 현재 소스에서 명령 처리와 설정 적용 경로를 확인한다. 내부 구현의 식별명·코드·처리 내용은 이 스킬에 기록하지 않는다.

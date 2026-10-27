@@ -6,7 +6,7 @@
 ## 담당 기능과 매뉴얼
 Base는 데이터셋 생성·I/O·런타임 할당, CPM 및 OpenFrame schema를 통한 데이터 변환과 커맨드라인 도구를 담당한다.
 
-- 매뉴얼: `{{manual_base}}/openframe_base`
+- 매뉴얼: `{{manual_base}}` 위키 → OpenFrame Base → 대상 제품 버전 → 안내서·장. 루트의 `common-manual-wiki`를 적용한다.
 - 생성·삭제·조회: `dscreate`, `dsdelete`, `dslist`, `listcat`
 - 내용 조회: `dsview`, `spfedit`
 - 마이그레이션: `dsmigin`, `dsmigout`, `cobgensch`

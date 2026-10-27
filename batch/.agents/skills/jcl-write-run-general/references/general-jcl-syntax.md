@@ -2,7 +2,7 @@
 
 ## 매뉴얼 선택
 
-기준 루트는 `openframe.local.yaml`의 `manual_base` 아래 `openframe_batch/docs/modules`이다. 실제 디렉터리와 파일 존재를 확인한 후 읽는다.
+`common-manual-wiki`에 따라 `openframe.local.yaml`의 `manual_base` 위키에서 OpenFrame Batch → 대상 제품 버전 → 현재 OS의 안내서를 선택한다. 아래 이름은 목차·검색의 탐색 단서이며 실제 링크와 본문을 확인한다.
 
 | BATCH_OS_TYPE | JCL | 유틸리티 | TJES |
 | --- | --- | --- | --- |
@@ -10,11 +10,11 @@
 | MSP | `msp-jcl-reference-guide` | `msp-utility-reference-guide` | `msp-tjes-guide` |
 | VOS3 | `vos-jcl-reference-guide` | `vos-utility-reference-guide` | `vos-tjes-guide` |
 
-MVS·MSP의 기본 제어문은 각 JCL 모듈의 `pages/jcl/`, VOS3는 `pages/os-jcl/`에 있다. 필요한 문장에 따라 `sect-job-statement.adoc`, `sect-exec-statement.adoc`, `sect-dd-statement.adoc`, `sect-special-dd-statement.adoc`, `sect-proc-statement.adoc`, `sect-pend-statement.adoc`를 읽는다.
+각 OS의 JCL 안내서에서 JOB, EXEC, DD, 특수 DD, PROC, PEND에 해당하는 장·절을 실제 목차 링크로 찾아 읽는다. 예전 소스 디렉터리나 파일명을 위키 URL에 붙이지 않는다.
 
-형식과 계속행은 MVS·MSP의 `pages/jcl-intro/sect-jcl-type.adoc`와 `sect-jcl-statement.adoc`, VOS3의 `pages/chapter-introduction.adoc` 및 그 include 문서를 확인한다. 제출·출력은 해당 TJES 모듈의 `pages/chapter-tjesmgr-commands.adoc`, `chapter-job-management.adoc`에서 연결된 문서를 읽는다.
+형식과 계속행은 각 OS의 JCL 개요·기술 형식·문장 작성 절에서 확인한다. 제출·출력은 해당 TJES 안내서의 명령어·JOB 관리 장에서 확인한다. 미해결 include나 본문 누락이 있으면 필요한 명세를 확인한 것으로 판단하지 않는다.
 
-IEFBR14와 IEBGENER는 해당 Utility 모듈의 `pages/etc/sect-iefbr14.adoc`, `pages/ds/sect-iebgener.adoc`를 확인한다. 최소 실행 JOB의 `PGM`은 현재 OS·버전의 실제 설치 프로그램명에 맞춘다. 매뉴얼이 문법 검사만 지원한다고 명시한 오퍼랜드를 실제 기능이 구현된 것으로 취급하지 않는다.
+IEFBR14와 IEBGENER는 해당 OS의 유틸리티 참조 안내서에서 프로그램 이름으로 찾아 본문을 확인한다. 최소 실행 JOB의 `PGM`은 현재 OS·버전의 실제 설치 프로그램명에 맞춘다. 매뉴얼이 문법 검사만 지원한다고 명시한 오퍼랜드를 실제 기능이 구현된 것으로 취급하지 않는다.
 
 ## 기본 구조
 

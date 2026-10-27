@@ -46,6 +46,7 @@ openframe-codex/
 
 | 작업 | 스킬 |
 | --- | --- |
+| 위키 매뉴얼 조회·검색·편집 | [common-manual-wiki](.agents/skills/common-manual-wiki/SKILL.md) |
 | OpenFrame 7 소스 빌드·바이너리 설치 | [openframe7-build](.agents/skills/openframe7-build/SKILL.md) |
 | 신규 환경 준비·DB 초기화·서비스 검증 | [openframe7-setup](.agents/skills/openframe7-setup/SKILL.md) |
 | TmaxSoft Jira 이슈 읽기 | [common-tmaxsoft-jira-read](.agents/skills/common-tmaxsoft-jira-read/SKILL.md) |
@@ -64,10 +65,12 @@ openframe-codex/
 
 1. [AGENTS.md](AGENTS.md)를 읽고 작업 범위와 필요한 스킬을 확인합니다.
 2. [설정 샘플](openframe.local.yaml.sample)을 루트의 `openframe.local.yaml`로 복사합니다. 기존 개인 설정이 있으면 덮어쓰지 않습니다.
-3. 자신의 매뉴얼 경로, 환경 파일 경로와 접속 정보를 입력하고 `default_environment`를 지정합니다. 샘플 값은 실제 접속에 사용하지 않습니다.
+3. `manual_base`에 자신의 매뉴얼 위키 진입 URL(HTTP/HTTPS)을 입력하고, 환경 파일 경로·접속 정보와 `default_environment`를 설정합니다. 샘플 값은 실제 접속에 사용하지 않습니다.
 4. 사용하는 AI 개발 에이전트에 환경과 작업을 요청합니다. 분석, 수정 제안, 구현, 빌드·테스트 중 필요한 범위를 명시합니다.
 
 ### 환경 프로필
+
+매뉴얼은 로컬·Git 파일 시스템 대신 `manual_base` 위키에서 제품 → 제품 버전 → 안내서 → 장의 실제 링크를 따라 읽습니다. [common-manual-wiki](.agents/skills/common-manual-wiki/SKILL.md)에 따라 본문 누락과 접근 실패를 구분합니다. 편집이 필요한데 비로그인 상태이면 사용자에게 위키 로그인을 요청하고, 로그인·편집 권한 확인 후 요청된 부분을 수정하여 저장 결과를 다시 확인합니다. 위키 인증 정보는 YAML에 보관하지 않습니다.
 
 `environments`는 환경 이름을 고유 키로 사용하는 맵입니다. 각 프로필에는 `type`, `env_path`, 제품 `version`, `os`, `rdb`를 정의합니다. 최상위 `version`은 설정 스키마 버전이며 제품 버전과 구분됩니다.
 

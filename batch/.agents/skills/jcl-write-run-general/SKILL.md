@@ -26,7 +26,7 @@ ofconfig list -n "$node_name" -k BATCH_OS_TYPE -l
 ## 작성
 
 1. JOB명, 프로그램, STEP 순서·조건, DD 이름, 입력·출력, 예상 RC와 업무 결과를 정한다. 실제 `SYS1.JCLLIB`의 검증된 JCL과 프로그램별 매뉴얼을 먼저 확인한다. 기존 멤버는 읽기 자료로 사용하고 덮어쓰지 않는다.
-2. [공통 문법과 OS별 매뉴얼 경로](references/general-jcl-syntax.md)를 읽는다. `JOB → EXEC → DD` 구조, 계속행, 인라인 입력 종료, 데이터셋 수명과 조건부 실행을 점검한다.
+2. [공통 문법과 OS별 매뉴얼 선택](references/general-jcl-syntax.md)을 읽고 `common-manual-wiki`에 따라 위키의 해당 버전·OS 문서를 확인한다. `JOB → EXEC → DD` 구조, 계속행, 인라인 입력 종료, 데이터셋 수명과 조건부 실행을 점검한다.
 3. 프로그램별 DD와 제어문은 해당 OS의 Utility Reference Guide에서 확인한다. COBOL 실행은 기존 성공 JCL의 `JOBLIB`/`STEPLIB`, 프로그램명 및 DD 계약을 따른다. 컴파일이 필요할 때만 적합한 컴파일 절차를 사용하며, MVS라는 이유로 Fujitsu용 전처리나 XSP 실행 래퍼를 추가하지 않는다.
 4. 실행 경로만 확인하려면 [무할당 IEFBR14](assets/general-iefbr14.jcl)를 기준으로 사용한다. 실행 프로그램명은 현재 OS·버전의 `$OPENFRAME_HOME/util`과 설치 설정에서 확인해 맞춘다. 빌드 트리의 파일명만으로 설치명을 결정하지 않는다. DD 입력·출력까지 확인하려면 [인라인 복사](assets/general-inline-copy.jcl)를 사용한다. JOB명과 멤버명은 기존 자원과 충돌하지 않게 정한다.
 

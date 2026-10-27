@@ -100,4 +100,4 @@ test ! -e "$program_library/TESTPGM" || printf 'existing member: %s\n' "$program
 
 명령이 불확실하면 다음 매뉴얼을 확인한다.
 
-- `{{manual_base}}/openframe_common/docs/modules/migration-guide/pages/mvs/sect-batch-application.adoc`
+- `common-manual-wiki`에 따라 `{{manual_base}}` 위키 → OpenFrame Common → 대상 제품 버전 → 마이그레이션 안내서(`migration-guide`)에서 배치 애플리케이션 이관·컴파일 관련 장의 실제 링크를 따라 읽는다. MVS 관련 내용의 적용 OS를 확인한다.

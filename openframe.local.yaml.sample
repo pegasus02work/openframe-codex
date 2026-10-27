@@ -22,7 +22,9 @@ version: 4
 #   rdb_connect_string: selected RDB connection string
 # For 7.4, env_path must set SOURCE_BASE to the ofsrc.git clone root.
 default_environment: "of73msp"
-manual_base: "C:/path/to/Tmax/manual"
+# Wiki entry URL, not a local/Git manual directory. Replace with your server.
+# Use the existing browser session; request user login when editing needs it.
+manual_base: "https://docs.example.com/ko/docs/openframe"
 
 environments:
   of73mvs_local:

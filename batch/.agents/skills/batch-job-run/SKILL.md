@@ -104,6 +104,5 @@ JOB ID가 발급되지 않은 제출 실패는 ID를 추측하지 않고 별도�
 명령이 불확실하면 다음 매뉴얼을 다시 확인한다.
 
 - 현재 `BATCH_OS_TYPE`에 따라 MVS는 `tjes-guide`, MSP는 `msp-tjes-guide`, VOS3는 `vos-tjes-guide`, XSP는 `xsp-tjes-guide`를 선택한다.
-- `{{manual_base}}/openframe_batch/docs/modules/<선택한 TJES 모듈>/pages/chapter-tjesmgr-commands.adoc`
-- `{{manual_base}}/openframe_batch/docs/modules/<선택한 TJES 모듈>/pages/chapter-job-management.adoc`
-- `{{manual_base}}/openframe_batch/docs/modules/batch-installation-guide/pages/chapter-verifying-installation.adoc`
+- `common-manual-wiki`에 따라 `{{manual_base}}` 위키 → OpenFrame Batch → 대상 제품 버전 → 선택한 OS의 TJES 안내서에서 `tjesmgr` 명령어와 JOB 관리 장의 실제 링크를 따라 읽는다.
+- 설치 검증은 같은 버전·OS의 설치 안내서에서 확인한다. MVS 기본 `batch-installation-guide`, MSP `msp-`, VOS3 `vos-`, XSP `xsp-` 구분은 실제 목차를 기준으로 한다.

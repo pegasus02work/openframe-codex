@@ -6,7 +6,7 @@
 ## 담당 기능과 매뉴얼
 HiDB는 IBM IMS DB에 대응한다.
 
-- 매뉴얼: `{{manual_base}}/openframe_hidb`
+- 매뉴얼: `{{manual_base}}` 위키 → OpenFrame HiDB → 대상 제품 버전 → 안내서·장. 루트의 `common-manual-wiki`를 적용한다.
 
 ## 변경과 검증
 - Jira의 메시지·매핑·연동·오류 정보는 현재 처리 순서, 실제 인터페이스와 로그에서 검증한다.

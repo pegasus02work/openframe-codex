@@ -1,6 +1,6 @@
 # XSP FD 작성·실패 점검
 
-FD 문법은 `xsp-jcl-reference-guide/pages/jcl/sect-fd-statement.adoc`, FCPY의 FD·제어문은 `xsp-utility-reference-guide/pages/ds/sect-fcpy.adoc`에서 확인한다.
+`common-manual-wiki`에 따라 `manual_base` 위키의 OpenFrame Batch → 대상 제품 버전 → XSP 안내서를 연다. FD 문법은 XSP JCL 문법 안내서(`xsp-jcl-reference-guide`)의 FD 문 절, FCPY의 FD·제어문은 XSP 유틸리티 참조 안내서(`xsp-utility-reference-guide`)의 FCPY 본문을 실제 목차 링크로 찾아 확인한다.
 
 ## 작성과 준비
 
