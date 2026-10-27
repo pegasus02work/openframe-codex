@@ -55,12 +55,12 @@ test -s ofcbppf_TESTPGM.cob
 ```bash
 cobol -dy -shared \
   -o TESTPGM ofcbppf_TESTPGM.cob \
-  -L"$OPENFRAME_HOME/lib" -laimap -ltcobfh \
+  -L"$OPENFRAME_HOME/lib" -ltcobfh \
   -WC"STD1(JIS1),NOALPHAL,SRF(FIX),NSPCOMP(ASP),DLOAD,RSV(V125),CHECK,MODE(CCVS)"
 test -s TESTPGM
 ```
 
-파일 입출력 전처리를 사용하므로 필요한 `-ltcobfh`를 누락하지 않는다. 테스트가 AIM, NDB 등 추가 기능을 사용하면 원본 Makefile과 매뉴얼에 명시된 라이브러리만 추가한다. `PROGRAM-ID`와 JCL 호출명에 맞춰 main program 산출물 이름을 정한다. 서브 프로그램은 해당 테스트의 shared object 명명 규칙을 따른다.
+위 예제는 파일 입출력 전처리를 사용하는 기본형이므로 필요한 `-ltcobfh`를 포함한다. AIM 기능이 필요한 테스트의 `-laimap` 등 추가 링크는 원본 Makefile·매뉴얼에서 의존성을 확인한 경우에만 적용하고, NDB 등 다른 추가 기능도 같은 기준을 따른다. `PROGRAM-ID`와 JCL 호출명에 맞춰 main program 산출물 이름을 정한다. 서브 프로그램은 해당 테스트의 shared object 명명 규칙을 따른다.
 
 여러 소스를 빌드할 때는 각 `ofcbppf` 성공을 확인한 뒤 해당 파일을 컴파일한다. 하나라도 실패하면 배치 단계로 넘어가지 않는다.
 

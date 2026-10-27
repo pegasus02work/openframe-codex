@@ -7,6 +7,8 @@ description: 테스트 JCL을 실제 SYS1.JCLLIB 경로에 복사하고 tjesmgr�
 
 JCL을 올바른 `SYS1.JCLLIB`에 배치하고 `tjesmgr`로 제출한 뒤 JOB 상태뿐 아니라 STEP RC와 SPOOL 내용까지 검증한다.
 
+JOB 결과 보고와 대기 중 종료 승인 원칙은 [루트 AGENTS.md](../../../../AGENTS.md)의 「JOB 실행 기록과 장시간 실행 대응」을 따른다. 이 스킬은 표의 필수 항목과 시간 측정·상태·SPOOL 조회의 상세 절차를 담당한다.
+
 ## 사전 확인
 
 1. 루트 `AGENTS.md`의 프로필 선택·접속·인증·환경 적용 절차를 따른다. 제품 작업은 환경 파일에서 읽은 `$SOURCE_BASE`에서 수행한다.

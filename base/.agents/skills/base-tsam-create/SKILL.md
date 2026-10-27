@@ -29,7 +29,7 @@ command -v listcat
 
 ## Copybook 준비와 레이아웃 검증
 
-TSAM은 테이블을 생성할 레코드 레이아웃으로 `.cpy` copybook을 사용한다. 사용할 copybook은 반드시 `$OPENFRAME_HOME/tsam/copybook`에 있어야 한다.
+TSAM은 테이블을 생성할 레코드 레이아웃으로 `.cpy` copybook을 사용한다. copybook의 준비 위치는 `$OPENFRAME_HOME/tsam/copybook`이다. 기존 파일을 사용하는 경우와 `AUTO_CREATE_COPYBOOK=YES`에 따른 자동 생성은 아래 절차로 구분한다.
 
 먼저 필요한 TSAM 디렉터리를 확인한다. `$OPENFRAME_HOME` 값이 올바른 것을 확인한 후 없는 디렉터리는 직접 생성하고 생성 사실을 작업 결과에 남긴다.
 
@@ -43,25 +43,35 @@ do
 done
 ```
 
-테스트가 제공하는 copybook이 있으면 대상 파일을 명시적으로 복사하고, 복사된 파일을 다시 확인한다. 넓은 위치에서 `*.cpy`를 무조건 복사하지 않는다.
+테스트가 제공하는 copybook이 있으면 원본과 대상 파일을 명시적으로 확인한다. 대상이 없으면 복사하고, 동일한 파일이 있으면 재사용한다. 다른 내용의 파일이 있으면 덮어쓰지 않고 교체 범위·복구 방법을 사용자와 확정한 별도 단계에서 처리한다. 넓은 위치에서 `*.cpy`를 무조건 복사하지 않는다.
 
 ```bash
 copybook_source=/path/to/RECORD.cpy
 copybook_name=RECORD.cpy
 copybook_dir="$OPENFRAME_HOME/tsam/copybook"
+copybook_target="$copybook_dir/$copybook_name"
 
-test -f "$copybook_source"
-cp -- "$copybook_source" "$copybook_dir/$copybook_name"
-cmp -- "$copybook_source" "$copybook_dir/$copybook_name"
+test -f "$copybook_source" || exit 1
+test -d "$copybook_dir" || exit 1
+if test -e "$copybook_target" || test -L "$copybook_target"; then
+  cmp -- "$copybook_source" "$copybook_target" || {
+    printf 'copybook differs; review replacement: %s\n' "$copybook_target" >&2
+    exit 1
+  }
+else
+  cp -n -- "$copybook_source" "$copybook_target" || exit 1
+fi
+cmp -- "$copybook_source" "$copybook_target" || exit 1
 ```
 
-`$common-ofconfig-manage`를 사용하여 `AUTO_CREATE_COPYBOOK` 설정을 `ofconfig list -n "$OPENFRAME_NODENAME"`으로 확인한다. subject와 section을 알고 있으면 `-s`, `-sec`, `-k AUTO_CREATE_COPYBOOK`으로 조회 범위를 좁힌다. 테스트를 위해 이 값을 바꾸면 해당 스킬의 스냅샷·복원 절차를 반드시 따른다.
+`common-ofconfig-manage`의 조회 절차로 `AUTO_CREATE_COPYBOOK`의 현재 `VALUE`를 확인한다. subject·section은 매뉴얼 또는 관련 범위의 기존 조회 결과로 식별하고, `ofconfig list -n "$OPENFRAME_NODENAME" -s "$subject" -sec "$section" -k AUTO_CREATE_COPYBOOK -l`로 해당 키만 상세 조회한다. 경로가 불명확하면 필요한 subject·section 범위만 단계적으로 확인하고 노드 전체 덤프를 기본 절차로 사용하지 않는다. 테스트를 위해 값을 바꾸면 해당 스킬의 스냅샷·복원 절차를 반드시 따른다.
 
 - 설정이 `NO`이면 copybook이 없을 때 생성 작업을 시작하지 말고 올바른 파일을 배치한다.
 - 설정이 `YES`이면 copybook이 없어도 TSAM이 새 copybook을 만들 수 있다. 생성 전 파일 존재 여부를 기록하고, 생성 후 새 파일이 만들어졌는지 확인한다.
+- 조회가 실패하거나 현재 값의 의미를 확인할 수 없으면 자동 생성을 가정하지 말고 원인을 확인한다.
 - 자동 생성된 copybook을 사용했다면 최종 보고에 `AUTO_CREATE_COPYBOOK=YES`였다는 사실, 생성된 파일의 전체 경로, 실제 사용한 파일명을 반드시 포함한다.
 
-`idcams define` 전에 copybook의 물리적 레이아웃을 계산하고 다음 조건을 검증한다.
+기존 copybook을 사용할 때는 `idcams define` 전에 물리적 레이아웃을 계산하고 다음 조건을 검증한다. 자동 생성 경로는 생성 전에 요청할 레코드 길이·키 정의를 검토하고, 생성 직후 실제 copybook을 같은 기준으로 검증한다. 불일치가 있으면 후속 의존 테스트를 진행하지 않고 아래 오류 처리 절차를 따른다.
 
 1. COPY 확장, `OCCURS`, `REDEFINES`, `PIC`, `USAGE`에 따른 실제 저장 크기를 반영하여 전체 레코드 크기를 계산한다. PIC에 보이는 자릿수만 단순 합산하지 않는다.
 2. copybook 전체 레이아웃 크기와 `idcams -l average,maximum`으로 지정할 레코드 길이를 같게 맞춘다.
@@ -69,7 +79,7 @@ cmp -- "$copybook_source" "$copybook_dir/$copybook_name"
 4. 키 시작 offset과 키 끝 offset이 모두 copybook 필드 경계에 놓이는지 확인한다.
 5. 하나의 키가 서로 인접한 여러 필드를 포함하는 것은 허용한다. 키 경계가 어떤 필드의 중간을 잘라서는 안 된다.
 
-검증 결과를 다음 형태로 남긴 뒤 생성한다.
+검증 결과는 다음 형태로 남긴다. 기존 copybook 경로는 생성 전에 기록하고, 자동 생성 경로는 생성 전 요청 정의와 생성 후 실제 레이아웃 검증을 구분해 기록한다.
 
 ```text
 copybook: RECORD.cpy
