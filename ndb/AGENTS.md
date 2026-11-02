@@ -6,7 +6,7 @@
 ## 담당 기능과 매뉴얼
 NDB는 Fujitsu AIM DB와 Hitachi XDM/SD DB에 대응한다.
 
-- 매뉴얼: `{{manual_base}}` 위키 → OpenFrame NDB → 대상 제품 버전 → 안내서·장. 루트의 `common-manual-wiki`를 적용한다.
+- 매뉴얼: `{{manual_base}}` 위키 → OpenFrame NDB → 대상 제품 버전 → 안내서·장. 조회·편집·저장은 [common-manual-wiki](../.agents/skills/common-manual-wiki/SKILL.md), 본문 작성·수정 기준과 기능 노트는 [common-manual-authoring](../.agents/skills/common-manual-authoring/SKILL.md)를 적용한다.
 
 ## 변경과 검증
 - Jira의 스키마·SQL·데이터·오류 정보는 현재 정의, 실제 데이터 접근 경로와 DB 로그에서 검증한다.

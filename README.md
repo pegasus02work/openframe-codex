@@ -46,7 +46,8 @@ openframe-codex/
 
 | 작업 | 스킬 |
 | --- | --- |
-| 위키 매뉴얼 조회·검색·편집 | [common-manual-wiki](.agents/skills/common-manual-wiki/SKILL.md) |
+| 위키 매뉴얼 접속·조회·편집·저장 검증 | [common-manual-wiki](.agents/skills/common-manual-wiki/SKILL.md) |
+| 매뉴얼 본문 작성·수정 기준·기능 노트·반영 경로 판단 | [common-manual-authoring](.agents/skills/common-manual-authoring/SKILL.md) |
 | OpenFrame 7 소스 빌드·바이너리 설치 | [openframe7-build](.agents/skills/openframe7-build/SKILL.md) |
 | 신규 환경 준비·DB 초기화·서비스 검증 | [openframe7-setup](.agents/skills/openframe7-setup/SKILL.md) |
 | TmaxSoft Jira 이슈 읽기 | [common-tmaxsoft-jira-read](.agents/skills/common-tmaxsoft-jira-read/SKILL.md) |
@@ -71,7 +72,7 @@ openframe-codex/
 
 ### 환경 프로필
 
-매뉴얼은 `manual_base` 위키에서 읽습니다. 문서 선택·본문 확인·로그인·편집 권한 확인과 저장 검증은 [common-manual-wiki](.agents/skills/common-manual-wiki/SKILL.md)를 기준으로 합니다.
+매뉴얼 작업의 스킬 선택은 [루트 AGENTS.md의 스킬 연동](AGENTS.md#스킬-연동)을 따릅니다. 위키 접속·조회·편집·저장 검증은 `common-manual-wiki`, 본문 작성·수정 기준과 기능 노트·반영 경로 판단은 `common-manual-authoring`이 담당합니다.
 
 `environments`는 환경 이름을 고유 키로 사용하는 맵입니다. 각 프로필에는 `type`, `env_path`, 제품 `version`, `os`, `rdb`를 정의합니다. 최상위 `version`은 설정 스키마 버전이며 제품 버전과 구분됩니다.
 

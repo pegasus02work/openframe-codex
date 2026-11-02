@@ -115,7 +115,8 @@
 
 | 요청 | 스킬 위치 |
 | --- | --- |
-| 위키 매뉴얼 조회·검색·편집 | `.agents/skills/common-manual-wiki` |
+| 위키 매뉴얼 접속·조회·편집·저장 검증 | `.agents/skills/common-manual-wiki` |
+| 매뉴얼 본문 작성·수정 기준·기능 노트·반영 경로 판단 | `.agents/skills/common-manual-authoring` |
 | TmaxSoft Jira 이슈 접근·내용·필드 확인 | `.agents/skills/common-tmaxsoft-jira-read` |
 | Jira 이슈 분석·수정 제안·구현 계획·구현 결과·커밋 문구의 산출물 관리 | `.agents/skills/common-issue-artifacts` |
 | OpenFrame 설정 조회·가역 변경·복원 | `.agents/skills/common-ofconfig-manage` |
@@ -199,7 +200,7 @@ PowerShell 환경 파일은 `Test-Path`로 확인하고 dot-source한 뒤 `$env:
 ## 빌드 및 테스트 환경의 기본 사항
 OpenFrame 7은 Tmax와 프로필의 RDBMS(Tibero 또는 Oracle)에 연동된다.
 
-- 제품 매뉴얼의 버전·OS별 문서 선택, 실제 링크 탐색·본문 확인, 로그인·편집 권한 확인과 저장 검증은 [common-manual-wiki](.agents/skills/common-manual-wiki/SKILL.md)를 단일 기준으로 따른다. 조회 요청을 편집 권한으로 확대하지 않으며, 인증 정보 보호는 위 공통 규칙을 적용한다.
+- 매뉴얼 작업은 위 「스킬 연동」 표의 역할 구분에 따라 적용한다. 단순 조회에는 작성 스킬을 추가로 적용하지 않으며, 본문 작성·수정이나 기능 노트 작성 시 두 스킬을 함께 적용한다. 조회 요청을 편집 권한으로 확대하지 않는다.
 - 아래 런타임 명령은 선택한 환경에 OpenFrame, Tmax, 선택한 RDBMS와 필요한 환경 변수가 구성된 경우 그 환경에서 실행한다. 현재 환경이 소스 체크아웃만 제공해 실행할 수 없다면 정적 검사까지 수행하고, 생략한 동적 검증과 필요한 런타임을 보고한다.
 - Tmax의 기동과 종료는 `tmboot`, `tmdown`으로 하며, 상태는 `tmadmin`으로 확인할 수 있다. `tmadmin`에서는 `quit`으로 빠져나온다.
 - 선택한 프로필의 `rdb_connect_string`으로 Tibero는 `tbsql`, Oracle은 `sqlplus`를 사용한다. 암호를 명령 인자나 로그에 노출하지 않고 대화형 인증 또는 출력하지 않는 stdin으로 전달한다.

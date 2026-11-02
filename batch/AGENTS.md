@@ -6,7 +6,7 @@
 ## 담당 기능과 매뉴얼
 Batch의 TJES는 배치 잡 실행 엔진이며, `util`은 데이터셋·DB 조작 등 배치 유틸리티를 담당한다.
 
-- 매뉴얼: `{{manual_base}}` 위키 → OpenFrame Batch → 대상 제품 버전 → 현재 OS의 안내서·장. 루트의 `common-manual-wiki`를 적용한다.
+- 매뉴얼: `{{manual_base}}` 위키 → OpenFrame Batch → 대상 제품 버전 → 현재 OS의 안내서·장. 조회·편집·저장은 [common-manual-wiki](../.agents/skills/common-manual-wiki/SKILL.md), 본문 작성·수정 기준과 기능 노트는 [common-manual-authoring](../.agents/skills/common-manual-authoring/SKILL.md)를 적용한다.
 
 ## 변경과 검증
 - Jira의 JOB·유틸리티·입력·오류 정보는 실제 JCL, 호출 경로, 종료 코드와 SPOOL에서 검증한다.
