@@ -40,7 +40,7 @@ description: Jira 이슈 분석부터 수정 제안, 사용자 선택안의 구�
 | `fix-proposal.md` | 수정안을 제시할 때 | 가능한 선택안별 AS-IS → TO-BE, 변경 지점, 기대 효과·영향 범위·위험·검증 방법, 권고안과 미확인 사항. 예상 효과와 실측 결과를 구분 |
 | `implementation-plan.md` | 사용자가 선택안을 결정한 뒤, 구현 전 | 선택안·선택 이유·기각한 대안과 이유·결정 상태·사용자 결정 근거·변경 이력, 요구사항별 파일·함수 단위 작업 순서와 변경 범위, 초기 테스트 계획·검증 명령·완료 조건. 이후 방향·검증 범위 변경과 확인 상태를 갱신 |
 | `implementation-report.md` | 허가된 구현을 진행할 때부터 완료까지 | 수정 전·후 각각의 기준 소스와 파일·함수·줄 번호를 연결한 AS-IS → TO-BE, 사용자 지침·계획과 실제 diff의 대응 및 차이, 구현 후 방향 확인 상태, 빌드·테스트·gcov 결과와 근거 링크, 실패 원인·미검증·남은 작업 |
-| `commit-message.md` | 구현 완료 후 | 실제 diff에 맞는 Git 커밋 메시지 초안. 저장소의 기존 형식에 맞춰 Jira ID, 변경 목적·내용 및 검증 결과를 반영하고 실패·미검증을 성공으로 표현하지 않음 |
+| `commit-message.md` | 구현 완료 후 | [common-commit-message-write](../common-commit-message-write/SKILL.md)에 따라 실제 diff에 맞는 Git 커밋 메시지 초안을 작성. 본문은 artifact·version·details 순서를 사용하고 변경·검증 범위 및 미검증을 사실대로 반영 |
 
 ## 보고서 단위와 조건부 분리
 
