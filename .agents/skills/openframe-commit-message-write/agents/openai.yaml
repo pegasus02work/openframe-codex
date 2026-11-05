@@ -1,0 +1,4 @@
+interface:
+  display_name: "OpenFrame Product Commit Message"
+  short_description: "OpenFrame 제품 소스 커밋 전용 artifact·version·details 형식"
+  default_prompt: "Use $openframe-commit-message-write to draft a commit message for an OpenFrame product-source repository; exclude Codex agent guidance, skill, and template repositories."

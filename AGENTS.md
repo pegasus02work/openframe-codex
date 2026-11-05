@@ -126,7 +126,7 @@
 | 매뉴얼 본문 작성·수정 기준·기능 노트·반영 경로 판단 | `.agents/skills/common-manual-authoring` |
 | TmaxSoft Jira 이슈 접근·내용·필드 확인 | `.agents/skills/common-tmaxsoft-jira-read` |
 | Jira 이슈 분석·수정 제안·구현 계획·구현 결과·커밋 문구의 산출물 관리 | `.agents/skills/common-issue-artifacts` |
-| Git 커밋 로그·메시지 초안 작성·수정·검토 (artifact·version·details 형식) | `.agents/skills/common-commit-message-write` |
+| OpenFrame 제품 소스 저장소의 커밋 로그·메시지 초안 작성·수정·검토 | `.agents/skills/openframe-commit-message-write` |
 | OpenFrame 설정 조회·가역 변경·복원 | `.agents/skills/common-ofconfig-manage` |
 | `COBOL_COMPILER=NETCOBOL`인 COBOL 테스트 모듈 전처리·컴파일·배치 | `.agents/skills/common-netcobol-compile` |
 | `COBOL_COMPILER=OFCOBOL`인 COBOL 테스트 모듈 컴파일·배치 | `.agents/skills/common-ofcobol-compile` |
@@ -241,7 +241,7 @@ OpenFrame 7은 Tmax와 프로필의 RDBMS(Tibero 또는 Oracle)에 연동된다.
 - 실패 보고에는 실행 명령·실행 파일 경로·실제 버전·기준 버전 22·핵심 오류와 종료 코드를 포함한다. 포맷 차이가 검출된 경우와 설정 해석·도구 실행이 실패해 검사를 완료하지 못한 경우를 구분하고, 빌드·테스트 결과와 별도로 보고한다. 버전 불일치가 원인이면 22로 재검사하고 그 결과를 기록한다.
 
 ## 작업 원칙
-- Git 커밋 로그와 `commit-message.md` 초안을 작성·수정할 때는 [common-commit-message-write](.agents/skills/common-commit-message-write/SKILL.md)를 적용한다. 본문의 `artifact`·`version`·`details` 형식과 필드별 작성 기준은 이 스킬을 단일 기준으로 삼는다.
+- OpenFrame 제품 소스 저장소의 커밋 로그와 해당 제품 변경의 `commit-message.md` 초안을 작성·수정할 때는 [openframe-commit-message-write](.agents/skills/openframe-commit-message-write/SKILL.md)를 적용한다. 본문의 `artifact`·`version`·`details` 형식과 필드별 작성 기준은 이 스킬을 단일 기준으로 삼는다. Codex 에이전트 지침·스킬·템플릿을 관리하는 저장소의 커밋에는 이 형식을 적용하지 않고 해당 저장소의 기존 일반 커밋 관례를 따른다.
 - 실제 Git 커밋은 사용자가 명시적으로 커밋을 지시한 경우에만 생성한다. 코드·스킬·문서 수정, 빌드·테스트 또는 staging 요청만으로 커밋 권한을 추정하지 않는다. 사용자 지시 없이 `git commit`, `git commit-tree` 등으로 커밋 객체나 커밋을 가리키는 참조를 생성·갱신하지 않는다. 이전 작업의 커밋 지시는 이후 작업에 자동으로 이어지지 않는다.
 - 작업 대상이 Git 저장소이면 본 작업 전에 현재 브랜치와 작업 트리 상태를 확인하고, 기존 변경을 보존한 채 `git pull --ff-only`를 반드시 먼저 시도한다. pull에 실패하면 원인과 원격 변경 반영 여부를 확인해 보고하며, 임의로 병합하거나 변경을 되돌리지 않는다.
 - Codex의 제한된 실행 환경에서 `.git`이 쓰기 보호되는 경우, `fetch`·`pull`·staging 등 `.git`을 변경하는 명령은 처음부터 도구가 제공하는 권한 승인 경로로 실행한다. 실행 권한의 승인은 해당 명령 자체에 대한 사용자 권한을 대신하지 않으며, 기존 작업 범위와 커밋·push 제한을 그대로 적용한다. `.git/FETCH_HEAD: Permission denied`가 발생하면 동일한 일반 실행을 반복하지 말고 승인 경로로 재시도한다. 이를 해결하기 위해 파일 권한을 완화하거나 전역 `safe.directory`를 변경하지 않는다. `safe.directory`는 저장소 신뢰 확인용이며 `.git` 쓰기 권한 문제의 해결책으로 취급하지 않는다. 승인된 최신화 명령의 성공을 확인하기 전에는 최신화 완료로 보고하지 않는다.

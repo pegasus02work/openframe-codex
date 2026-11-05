@@ -1,9 +1,15 @@
 ---
-name: common-commit-message-write
-description: OpenFrame 변경의 Git 커밋 로그와 커밋 메시지 초안을 실제 diff에 맞춰 작성한다. 본문은 artifact, version, details 순서의 고정 형식을 사용하며 커밋 문구 작성·수정·검토 요청과 이슈 구현 완료 후 초안 작성에 적용한다.
+name: openframe-commit-message-write
+description: OpenFrame 제품 소스 저장소의 Git 커밋 로그와 메시지 초안을 artifact, version, details 형식으로 작성·수정·검토한다. Codex 에이전트 지침·스킬·템플릿 관리 저장소의 커밋에는 적용하지 않는다.
 ---
 
-# OpenFrame 커밋 메시지 작성
+# OpenFrame 제품 커밋 메시지 작성
+
+## 적용 범위
+
+- 이 형식은 OpenFrame 제품 소스 저장소의 커밋 및 해당 제품 변경에 대한 커밋 메시지 초안에만 적용한다.
+- Codex 에이전트의 AGENTS.md·스킬·템플릿을 관리하는 저장소의 커밋에는 적용하지 않는다. 그런 변경은 해당 저장소의 기존 일반 커밋 관례를 따른다.
+- 적용 여부는 메시지가 설명하는 대상 저장소와 변경 내용으로 판단한다. 현재 작업 디렉터리, Jira 이슈 ID, 초안이 저장되는 위치만으로 제품 커밋이라고 판단하지 않는다. 지침 저장소에 저장하는 제품 코드의 커밋 초안은 제품 형식을 적용하되, 그 초안 파일 자체를 지침 저장소에 커밋할 때는 해당 저장소 관례를 따른다.
 
 ## 근거 확인
 
