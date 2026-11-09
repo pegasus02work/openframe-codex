@@ -83,3 +83,4 @@ description: Jira 이슈 분석부터 수정 제안, 사용자 선택안의 구�
 - 분석 결론은 `analysis.md`, 대안 비교는 `fix-proposal.md`, 결정한 계획은 `implementation-plan.md`, 실제 결과는 `implementation-report.md`를 기준으로 삼고 다른 문서에서는 상대 링크로 연결한다. 테스트 함수별 결과·gcov와 JOB 실행 기록은 담당 지침의 내용을 보존하되 해당 단계 문서에서 근거를 연결한다.
 - 구현이 진행 중이거나 검증이 막혔으면 `implementation-report.md`에 현재 상태와 남은 검증을 명시한다. `commit-message.md` 작성 자체로 staging·커밋·push를 실행하지 않는다.
 - 최종 답변에는 생성·갱신한 문서 링크와 작업·검증 상태를 제시한다. 산출물이나 문서에 기록된 선택안을 사용자 승인으로 간주하지 않고 실제 대화의 결정과 연결한다.
+- 사용자가 대응 완료 후 산출물·분석 파일·이슈 브랜치의 정리 또는 삭제를 요청하면 [common-issue-cleanup](../common-issue-cleanup/SKILL.md)으로 연결한다. 이슈 완료만으로 산출물을 자동 삭제하지 않으며, 삭제 전 커밋·푸시·병합 검사와 예외 확인은 해당 스킬을 따른다.

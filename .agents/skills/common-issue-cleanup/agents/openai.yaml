@@ -1,0 +1,4 @@
+interface:
+  display_name: "Common Issue Cleanup"
+  short_description: "Clean completed issue artifacts and branches safely"
+  default_prompt: "Use $common-issue-cleanup to clean this completed issue's artifacts, transferred analysis files, and issue branches after checking commits, pushes, and merges, then return to and update its original base branch."

@@ -126,6 +126,7 @@
 | 매뉴얼 본문 작성·수정 기준·기능 노트·반영 경로 판단 | `.agents/skills/common-manual-authoring` |
 | TmaxSoft Jira 이슈 접근·내용·필드 확인 | `.agents/skills/common-tmaxsoft-jira-read` |
 | Jira 이슈 분석·수정 제안·구현 계획·구현 결과·커밋 문구의 산출물 관리 | `.agents/skills/common-issue-artifacts` |
+| 사용자 요청에 따른 완료 이슈 산출물·분석 파일·이슈 브랜치 삭제와 파생 전 브랜치 복귀·최신화 | `.agents/skills/common-issue-cleanup` |
 | OpenFrame 제품 소스 저장소의 커밋 로그·메시지 초안 작성·수정·검토 | `.agents/skills/openframe-commit-message-write` |
 | OpenFrame 설정 조회·가역 변경·복원 | `.agents/skills/common-ofconfig-manage` |
 | `COBOL_COMPILER=NETCOBOL`인 COBOL 테스트 모듈 전처리·컴파일·배치 | `.agents/skills/common-netcobol-compile` |
@@ -139,6 +140,8 @@
 | MVS·MSP·VOS3 JCL 작성·문법 수정 | `batch/.agents/skills/jcl-write-run-general` |
 
 JCL을 실제 제출·실행하면 작성 스킬과 `batch-job-run`을 함께 사용한다. MVS·MSP·VOS3 기본 문법은 공통 스킬에서 관리하고, 특수 기능은 해당 OS 매뉴얼과 설치 버전의 지원 여부를 확인한다.
+
+완료 이슈의 산출물·브랜치 정리 또는 삭제를 사용자가 요청하면 [common-issue-cleanup](.agents/skills/common-issue-cleanup/SKILL.md)을 적용한다. 이슈 해결·완료 보고만으로 정리를 자동 실행하지 않는다. 커밋·원격 푸시 및 최신화한 파생 전 브랜치의 병합 여부를 먼저 검사하고, 조건 미충족·검증 불가 시 해당 스킬에 따라 사용자에게 계속 진행할지 확인한다.
 
 ### COBOL 컴파일러 라우팅
 
