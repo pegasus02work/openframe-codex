@@ -1,12 +1,18 @@
 # OpenFrame Batch 유틸리티 추가 지침
 
 ## 적용 범위
-제품별 규칙은 `$SOURCE_BASE/batch/util/**`에만 적용한다. 그 밖의 `batch` 경로는 루트와 실제 대상에 더 가까운 `AGENTS.md`를 따른다. 공통 환경·Git·증거·보고 규칙은 루트 문서를 따른다.
+제품별 규칙은 `$SOURCE_BASE/batch/util/**`와 `$SOURCE_BASE/batch/src/util/**`에 적용한다. 그 밖의 `batch` 경로는 루트와 실제 대상에 더 가까운 `AGENTS.md`를 따른다. 공통 환경·Git·증거·보고 규칙은 루트 문서를 따른다.
 
 ## 담당 기능과 매뉴얼
 Batch의 TJES는 배치 잡 실행 엔진이며, `util`은 데이터셋·DB 조작 등 배치 유틸리티를 담당한다.
 
 - 매뉴얼: `{{manual_base}}` 위키 → OpenFrame Batch → 대상 제품 버전 → 현재 OS의 안내서·장. 조회·편집·저장은 [common-manual-wiki](../.agents/skills/common-manual-wiki/SKILL.md), 본문 작성·수정 기준과 기능 노트는 [common-manual-authoring](../.agents/skills/common-manual-authoring/SKILL.md)를 적용한다.
+
+## 여러 OS가 공유하는 유틸리티 소스
+
+- 실제 Makefile과 빌드 대상에서 같은 소스를 사용하는 OS와 유틸리티를 확인한다. 소스나 실행 파일 이름만으로 공유 범위를 판단하지 않는다.
+- 여러 OS가 같은 소스를 사용하면 제품 코드 수정 전에 **OS별 분기로 변경을 특정 OS에 한정할지, 공유 소스의 공통 동작으로 적용할지 반드시 사용자에게 묻고 답변을 확인한다.** 선택에 따라 영향을 받는 OS·유틸리티와 검증 범위를 함께 제시한다. 사용자 확인 전에는 조사와 변경안 정리까지만 진행한다.
+- 사용자가 같은 변경의 적용 방식을 이미 명시했다면 그 결정을 사용한다. 구현과 테스트의 기대값은 확정한 적용 범위를 따른다.
 
 ## 변경과 검증
 - Jira의 JOB·유틸리티·입력·오류 정보는 실제 JCL, 호출 경로, 종료 코드와 SPOOL에서 검증한다.

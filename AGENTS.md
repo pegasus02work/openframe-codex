@@ -76,13 +76,13 @@
 | 작업 대상 | 함께 적용할 하위 지침 | 비고 |
 | --- | --- | --- |
 | `$SOURCE_BASE/base/**` | `base/AGENTS.md` | OpenFrame Base |
-| `$SOURCE_BASE/batch/util/**` | `batch/AGENTS.md` | Batch 유틸리티 전용 규칙 |
+| `$SOURCE_BASE/batch/util/**`, `$SOURCE_BASE/batch/src/util/**` | `batch/AGENTS.md` | Batch 유틸리티 전용 규칙 |
 | `$SOURCE_BASE/ims/**` | `ims/AGENTS.md` | OpenFrame HiDB |
 | `$SOURCE_BASE/ndb/**` | `ndb/AGENTS.md` | OpenFrame NDB |
 | 그 밖의 경로 | 루트 `AGENTS.md` 및 실제 경로에서 발견한 더 가까운 `AGENTS.md` | 경로를 확인한 뒤 적용 |
 
 - 위 표는 현재 로컬 지침의 연결 관계다. 선택한 환경의 실제 소스에 더 가까운 `AGENTS.md`가 있는지도 작업마다 현재 셸에 맞는 검색 명령으로 확인하고, 발견되면 함께 읽는다.
-- `batch/AGENTS.md`는 파일 배치상 `batch` 아래에 있지만 제품별 추가 규칙의 적용 범위는 `batch/util/**`로 한정한다. 다른 `batch` 경로는 루트 지침과 그 경로에서 별도로 발견한 지침을 따른다.
+- `batch/AGENTS.md`는 파일 배치상 `batch` 아래에 있지만 제품별 추가 규칙의 적용 범위는 `batch/util/**`와 `batch/src/util/**`로 한정한다. 다른 `batch` 경로는 루트 지침과 그 경로에서 별도로 발견한 지침을 따른다.
 - Jira 이슈를 근거로 작업하더라도 이 라우팅을 생략하지 않는다. 이슈는 요구사항과 재현 정보의 출처이고, 실제 코드 구조·빌드·테스트 방법은 해당 `AGENTS.md`와 현재 환경에서 확인한다.
 
 ## 공개 정보와 내부 구현의 기록 범위
